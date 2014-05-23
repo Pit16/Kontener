@@ -1,0 +1,4 @@
+Kontener
+========
+
+Implementacja własnego kontenera.
