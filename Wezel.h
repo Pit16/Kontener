@@ -3,7 +3,7 @@
 
 class Wezel
 {
-public::
+public:
     Wezel();
    ~Wezel();
 private:
