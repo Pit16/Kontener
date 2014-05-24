@@ -22,3 +22,6 @@
 
 #Katalog build
 build/
+
+#pliki ustawien
+*.user
