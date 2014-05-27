@@ -4,11 +4,12 @@
 class Wezel
 {
 public:
-    Wezel();
+    Wezel(int wartosc);
    ~Wezel();
 private:
     Wezel* nastepny;
     Wezel* poprzedni;
+    int wartosc;
 };
 
 
