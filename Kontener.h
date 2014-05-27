@@ -9,6 +9,7 @@ public:
     ~Kontener();
 private:
     Wezel* glowa;
+    int liczba_elementow;
 };
 
 #endif //KONTENER_H
