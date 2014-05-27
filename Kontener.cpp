@@ -25,6 +25,14 @@ void Kontener::dodaj_element(int nowy_element)
         nowy_wezel->nastepny=glowa;
     }
 
+    else
+    {
+        Wezel* ogon = glowa->poprzedni;
+        nowy_wezel->nastepny=glowa;
+        nowy_wezel->poprzedni=ogon;
+        ogon->nastepny=nowy_wezel;
+        glowa->poprzedni=nowy_wezel;
+    }
 
 
     liczba_elementow++;
