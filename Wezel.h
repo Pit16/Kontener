@@ -6,11 +6,10 @@ class Wezel
 public:
     Wezel(int wartosc);
    ~Wezel();
-private:
     Wezel* nastepny;
     Wezel* poprzedni;
+private:
     int wartosc;
 };
-
 
 #endif //WEZEL_H

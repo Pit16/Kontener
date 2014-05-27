@@ -12,3 +12,20 @@ Kontener::~Kontener()
     //TODO: usuwanie wezlow
 }
 
+void Kontener::dodaj_element(int nowy_element)
+{
+    Wezel* nowy_wezel = new Wezel(nowy_element);
+    if(glowa==NULL)
+        glowa=nowy_wezel;
+    else if(glowa->nastepny==NULL)
+    {
+        glowa->poprzedni=nowy_wezel;
+        glowa->nastepny=nowy_wezel;
+        nowy_wezel->poprzedni=glowa;
+        nowy_wezel->nastepny=glowa;
+    }
+
+
+
+    liczba_elementow++;
+}
