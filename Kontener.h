@@ -10,6 +10,7 @@ public:
     void dodaj_element(int nowy_element);
 private:
     Wezel* glowa;
+    Wezel* ogon;
     int liczba_elementow;
 };
 

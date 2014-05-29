@@ -5,6 +5,7 @@ Kontener::Kontener()
 {
     liczba_elementow=0;
     glowa=NULL;
+    ogon=NULL;
 }
 
 Kontener::~Kontener()
