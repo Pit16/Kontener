@@ -8,6 +8,8 @@ int main()
     Kontener* nowy_kontener = new Kontener();
     nowy_kontener->dodaj_element(2);
     nowy_kontener->dodaj_element(7);
+    nowy_kontener->dodaj_element(3);
+    nowy_kontener->dodaj_element(9);
     cout<<*nowy_kontener;
 
 

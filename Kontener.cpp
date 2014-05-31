@@ -38,8 +38,13 @@ void Kontener::dodaj_element(int nowy_element)
     liczba_elementow++;
 }
 std::ostream& operator<< (std::ostream& strumien, Kontener& kontener)
- {
-   strumien<<"liczba elementow: "<<kontener.liczba_elementow<<std::endl;
-
-   return strumien;
- }
+{
+    strumien<<"liczba elementow: "<<kontener.liczba_elementow<<std::endl;
+    Wezel* znacznik =kontener.glowa;
+    for(int i=0; i<kontener.liczba_elementow; i++)
+    {
+        strumien<<"Wartosc elementow: "<<i<<*znacznik<<std::endl;
+        znacznik=znacznik->nastepny;
+    }
+    return strumien;
+}
