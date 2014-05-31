@@ -1,6 +1,5 @@
 #include "Kontener.h"
 #include <iostream>
-
 Kontener::Kontener()
 {
     liczba_elementow=0;
@@ -38,3 +37,9 @@ void Kontener::dodaj_element(int nowy_element)
 
     liczba_elementow++;
 }
+std::ostream& operator<< (std::ostream& strumien, Kontener& kontener)
+ {
+   strumien<<"liczba elementow: "<<kontener.liczba_elementow<<std::endl;
+
+   return strumien;
+ }
