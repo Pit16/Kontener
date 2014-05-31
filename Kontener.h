@@ -7,8 +7,10 @@ class Kontener
 public:
     Kontener();
     ~Kontener();
+    void dodaj_element(int nowy_element);
 private:
     Wezel* glowa;
+    Wezel* ogon;
     int liczba_elementow;
 };
 
