@@ -10,6 +10,7 @@ public:
     Kontener();
     ~Kontener();
     void dodaj_element(int nowy_element);
+    void usun_element(int stary_element);
     friend std::ostream & operator<< (std::ostream &, Kontener &);
 private:
     Wezel* glowa;

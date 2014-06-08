@@ -48,3 +48,21 @@ std::ostream& operator<< (std::ostream& strumien, Kontener& kontener)
     }
     return strumien;
 }
+
+void Kontener::usun_element(int stary_element)
+{
+    if(glowa==NULL)
+        return;
+    Wezel* znacznik = this->glowa;
+    if(stary_element==0)
+    {
+        glowa=glowa->nastepny;
+    }
+    for(int i=0; i<stary_element; i++)
+    {
+        znacznik=znacznik->nastepny;
+    }
+    delete znacznik;
+    liczba_elementow--;
+}
+

@@ -8,6 +8,19 @@ Wezel::Wezel(int wartosc)
     this->wartosc=wartosc;
 }
 
+Wezel::~Wezel()
+{
+    if(poprzedni==NULL || nastepny==NULL)
+        return;
+    poprzedni->nastepny=nastepny;
+    nastepny->poprzedni=poprzedni;
+    if(nastepny==poprzedni)
+    {
+        nastepny->nastepny=NULL;
+        poprzedni->poprzedni=NULL;
+    }
+}
+
 int Wezel::pokaz_wartosc()
 {
     return wartosc;
