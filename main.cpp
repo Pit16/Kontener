@@ -11,6 +11,7 @@ int main()
     nowy_kontener->dodaj_element(3);
     nowy_kontener->dodaj_element(9);
     cout<<*nowy_kontener;
+    cout<< nowy_kontener[3] <<endl;
 
 
 

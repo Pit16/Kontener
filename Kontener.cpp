@@ -1,5 +1,6 @@
 #include "Kontener.h"
 #include <iostream>
+using namespace std;
 Kontener::Kontener()
 {
     liczba_elementow=0;
@@ -43,8 +44,25 @@ std::ostream& operator<< (std::ostream& strumien, Kontener& kontener)
     Wezel* znacznik =kontener.glowa;
     for(int i=0; i<kontener.liczba_elementow; i++)
     {
-        strumien<<"Wartosc elementow: "<<i<<*znacznik<<std::endl;
+        strumien<<"Wezel numer: "<<i<<*znacznik<<std::endl;
         znacznik=znacznik->nastepny;
     }
     return strumien;
 }
+
+int Kontener::operator[](int indeks)
+{
+  if(liczba_elementow>=indeks)
+  {
+      Wezel* znacznik = this->glowa;
+      for(int i=0; i<indeks; i++)
+      {
+          znacznik=znacznik->nastepny;
+      }
+      return znacznik->pokaz_wartosc();
+  }
+  else
+      cout<<"Brak elementow"<<endl;
+  return 0;
+}
+
