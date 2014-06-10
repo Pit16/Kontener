@@ -27,7 +27,7 @@ int Wezel::pokaz_wartosc()
 }
 ostream& operator<< (ostream& strumien, Wezel& wezel)
  {
-   strumien<<"wartosc elementu wynosi"<<wezel.pokaz_wartosc()<<endl;
+   strumien<<" wartosc elementu wynosi "<<wezel.pokaz_wartosc()<<endl;
 
    return strumien;
  }

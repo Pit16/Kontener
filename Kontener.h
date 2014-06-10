@@ -11,6 +11,8 @@ public:
     ~Kontener();
     void dodaj_element(int nowy_element);
     void usun_element(int stary_element);
+    int operator[](int indeks);
+    int pobierz_element(int indeks);
     friend std::ostream & operator<< (std::ostream &, Kontener &);
 private:
     Wezel* glowa;
