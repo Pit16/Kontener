@@ -98,3 +98,35 @@ int Kontener::pobierz_element(int indeks)
   return 0;
 }
 
+void Kontener::zamien_obiekty(int pierwszy, int drugi)
+{
+   //czy glowa dziala dobrze? nie sądze...
+
+
+   if(pierwszy>drugi)
+   {
+       int zmienna=0;
+       zmienna=drugi;
+       drugi=pierwszy;
+       pierwszy=zmienna;
+   }
+
+   // gdy stoja dwa obiekty obok siebie
+   Wezel* znacznik1= glowa;
+      for(int i=0; i<pierwszy; i++)
+          znacznik1=znacznik1->nastepny;
+   Wezel* temp1 = znacznik1;
+   Wezel* znacznik2= glowa;
+      for(int i=0; i<drugi; i++)
+          znacznik2=znacznik2->nastepny;
+   Wezel* temp2 = znacznik2->nastepny;
+
+   temp1->poprzedni->nastepny=temp2->poprzedni;
+   temp1->nastepny->poprzedni=temp1->poprzedni;
+   temp1->nastepny=temp2;
+   temp1->poprzedni=temp2->poprzedni;
+   temp2->poprzedni->nastepny=temp1;
+   temp2->poprzedni=temp1;
+
+}
+

@@ -11,14 +11,9 @@ int main()
     nowy_kontener->dodaj_element(3);
     nowy_kontener->dodaj_element(9);
     cout<<*nowy_kontener<<endl;
-    nowy_kontener->usun_element(3);
+    nowy_kontener->zamien_obiekty(2,3);
     cout<<*nowy_kontener;
-    int liczba = (*nowy_kontener)[2];
-    cout << liczba<<endl;
-    int liczba2 = nowy_kontener->pobierz_element(2);
-    nowy_kontener->dodaj_element(5);
-    cout<<liczba2<<endl;
-    cout<<*nowy_kontener;
+
 
 
 	return 0;
