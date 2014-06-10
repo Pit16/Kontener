@@ -11,8 +11,10 @@ int main()
     nowy_kontener->dodaj_element(3);
     nowy_kontener->dodaj_element(9);
     cout<<*nowy_kontener;
-    cout<< nowy_kontener[3] <<endl;
-
+    int liczba = (*nowy_kontener)[2];
+    cout << liczba<<endl;
+    int liczba2 = nowy_kontener->pobierz_element(2);
+    cout<<liczba2<<endl;
 
 
 	return 0;

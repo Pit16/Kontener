@@ -66,3 +66,19 @@ int Kontener::operator[](int indeks)
   return 0;
 }
 
+int Kontener::pobierz_element(int indeks)
+{
+  if(liczba_elementow>=indeks)
+  {
+      Wezel* znacznik = this->glowa;
+      for(int i=0; i<indeks; i++)
+      {
+          znacznik=znacznik->nastepny;
+      }
+      return znacznik->pokaz_wartosc();
+  }
+  else
+      cout<<"Brak elementow"<<endl;
+  return 0;
+}
+
