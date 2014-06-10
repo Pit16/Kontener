@@ -2,17 +2,19 @@
 #define WEZEL_H
 #include <iostream>
 
+template <class Typ>
 class Wezel
 {
 public:
-    Wezel(int wartosc);
+    Wezel(Typ wartosc);
    ~Wezel();
     Wezel* nastepny;
     Wezel* poprzedni;
-    int pokaz_wartosc();
+    Typ pokaz_wartosc();
 private:
-    int wartosc;
+    Typ wartosc;
 };
-std::ostream& operator<< (std::ostream& strumien, Wezel& wezel);
+template <class Typ>
+std::ostream& operator<< (std::ostream& strumien, Wezel<Typ>& wezel);
 
 #endif //WEZEL_H

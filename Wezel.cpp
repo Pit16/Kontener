@@ -1,14 +1,17 @@
 #include "Wezel.h"
 #include <iostream>
 using namespace std;
-Wezel::Wezel(int wartosc)
+
+template <class Typ>
+Wezel<Typ>::Wezel(Typ wartosc)
 {
     nastepny = NULL;
     poprzedni = NULL;
     this->wartosc=wartosc;
 }
 
-Wezel::~Wezel()
+template <class Typ>
+Wezel<Typ>::~Wezel()
 {
     if(poprzedni==NULL || nastepny==NULL)
         return;
@@ -20,14 +23,16 @@ Wezel::~Wezel()
         poprzedni->poprzedni=NULL;
     }
 }
-
-int Wezel::pokaz_wartosc()
+template <class Typ>
+Typ Wezel<Typ>::pokaz_wartosc()
 {
     return wartosc;
 }
-ostream& operator<< (ostream& strumien, Wezel& wezel)
+
+template <class Typ>
+ostream& operator<< (ostream& strumien, Wezel<Typ>& wezel)
  {
-   strumien<<" wartosc elementu wynosi "<<wezel.pokaz_wartosc()<<endl;
+   strumien<<wezel.pokaz_wartosc();
 
    return strumien;
  }
