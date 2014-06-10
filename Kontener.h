@@ -14,6 +14,7 @@ public:
     int operator[](int indeks);
     int pobierz_element(int indeks);
     friend std::ostream & operator<< (std::ostream &, Kontener &);
+    void zamien_obiekty(int pierwszy, int drugi);
 private:
     Wezel* glowa;
     Wezel* ogon;
