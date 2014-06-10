@@ -143,6 +143,19 @@ void Kontener::zamien_obiekty(int pierwszy, int drugi)
         temp2->poprzedni->nastepny=temp1;
         temp2->poprzedni=temp1;
     }
+    else if(pierwszy==0 && drugi==liczba_elementow-1)
+    {
+        Wezel* temp1 = glowa;
+        Wezel* temp2 = glowa->poprzedni;
+        temp1->nastepny->poprzedni=temp2;
+        temp2->poprzedni->nastepny=temp1;
+        temp2->nastepny=temp1->nastepny;
+        temp1->poprzedni=temp2->poprzedni;
+        temp1->nastepny=temp2;
+        temp2->poprzedni=temp1;
+        glowa=temp2;
+
+    }
 
     else if(drugi-pierwszy>1)
     {
@@ -168,19 +181,6 @@ void Kontener::zamien_obiekty(int pierwszy, int drugi)
         temp2->poprzedni=temp12;
         if(pierwszy==0)
             glowa=temp2;
-
-
     }
 
 }
-/*
-        temp1->poprzedni->nastepny=temp2;
-        temp1->nastepny->poprzedni=temp2;
-        temp2->poprzedni->nastepny=temp1;
-        temp2->nastepny->poprzedni=temp1;
-        temp2->poprzedni=temp1->poprzedni;
-        temp2->nastepny=temp1->nastepny;
-        temp1->poprzedni=temp2->poprzedni;
-        temp1->poprzedni->nastepny=temp2;
-        temp1->nastepny=temp2->nastepny;
-*/
