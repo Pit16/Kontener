@@ -68,81 +68,119 @@ void Kontener::usun_element(int stary_element)
 }
 int Kontener::operator[](int indeks)
 {
-  if(liczba_elementow>=indeks)
-  {
-      Wezel* znacznik = this->glowa;
-      for(int i=0; i<indeks; i++)
-      {
-          znacznik=znacznik->nastepny;
-      }
-      return znacznik->pokaz_wartosc();
-  }
-  else
-      cout<<"Brak elementow"<<endl;
-  return 0;
+    if(liczba_elementow>=indeks)
+    {
+        Wezel* znacznik = this->glowa;
+        for(int i=0; i<indeks; i++)
+        {
+            znacznik=znacznik->nastepny;
+        }
+        return znacznik->pokaz_wartosc();
+    }
+    else
+        cout<<"Brak elementow"<<endl;
+    return 0;
 }
 
 int Kontener::pobierz_element(int indeks)
 {
-  if(liczba_elementow>=indeks)
-  {
-      Wezel* znacznik = this->glowa;
-      for(int i=0; i<indeks; i++)
-      {
-          znacznik=znacznik->nastepny;
-      }
-      return znacznik->pokaz_wartosc();
-  }
-  else
-      cout<<"Brak elementow"<<endl;
-  return 0;
+    if(liczba_elementow>=indeks)
+    {
+        Wezel* znacznik = this->glowa;
+        for(int i=0; i<indeks; i++)
+        {
+            znacznik=znacznik->nastepny;
+        }
+        return znacznik->pokaz_wartosc();
+    }
+    else
+        cout<<"Brak elementow"<<endl;
+    return 0;
 }
 
 void Kontener::zamien_obiekty(int pierwszy, int drugi)
 {
-   //czy glowa dziala dobrze? nie sądze...
+    //czy glowa dziala dobrze? nie sądze...
 
 
-   if(pierwszy>drugi)
-   {
-       int zmienna=0;
-       zmienna=drugi;
-       drugi=pierwszy;
-       pierwszy=zmienna;
-   }
+    if(pierwszy>drugi)
+    {
+        int zmienna=0;
+        zmienna=drugi;
+        drugi=pierwszy;
+        pierwszy=zmienna;
+    }
 
-   if(pierwszy==0)
-   {
-   // gdy jeden z zamienianych obiektowy (stojacych obok siebie) jest glową
-   Wezel* temp1=glowa;
-   Wezel* temp2=glowa->nastepny;
-   temp2->nastepny->poprzedni=temp1;
-   glowa->poprzedni->nastepny=temp2;
-   temp2->poprzedni=temp1->poprzedni;
-   temp1->poprzedni=temp2;
-   temp1->nastepny=temp2->nastepny;
-   temp2->nastepny=temp1;
-   glowa=temp2;
-   }
-   else
-   {
-   // gdy stoja dwa obiekty obok siebie
-   Wezel* znacznik1= glowa;
-      for(int i=0; i<pierwszy; i++)
-          znacznik1=znacznik1->nastepny;
-   Wezel* temp1 = znacznik1;
-   Wezel* znacznik2= glowa;
-      for(int i=0; i<drugi; i++)
-          znacznik2=znacznik2->nastepny;
-   Wezel* temp2 = znacznik2->nastepny;
+    if(drugi-pierwszy==1 && pierwszy==0)
+    {
+        // gdy jeden z zamienianych obiektowy (stojacych obok siebie) jest glową
+        Wezel* temp1=glowa;
+        Wezel* temp2=glowa->nastepny;
+        temp2->nastepny->poprzedni=temp1;
+        glowa->poprzedni->nastepny=temp2;
+        temp2->poprzedni=temp1->poprzedni;
+        temp1->poprzedni=temp2;
+        temp1->nastepny=temp2->nastepny;
+        temp2->nastepny=temp1;
+        glowa=temp2;
+    }
+    else if(drugi-pierwszy==1)
+    {
+        // gdy stoja dwa obiekty obok siebie
+        Wezel* znacznik1= glowa;
+        for(int i=0; i<pierwszy; i++)
+            znacznik1=znacznik1->nastepny;
+        Wezel* temp1 = znacznik1;
+        Wezel* znacznik2= glowa;
+        for(int i=0; i<drugi; i++)
+            znacznik2=znacznik2->nastepny;
+        Wezel* temp2 = znacznik2->nastepny;
 
-   temp1->poprzedni->nastepny=temp2->poprzedni;
-   temp1->nastepny->poprzedni=temp1->poprzedni;
-   temp1->nastepny=temp2;
-   temp1->poprzedni=temp2->poprzedni;
-   temp2->poprzedni->nastepny=temp1;
-   temp2->poprzedni=temp1;
-   }
+        temp1->poprzedni->nastepny=temp2->poprzedni;
+        temp1->nastepny->poprzedni=temp1->poprzedni;
+        temp1->nastepny=temp2;
+        temp1->poprzedni=temp2->poprzedni;
+        temp2->poprzedni->nastepny=temp1;
+        temp2->poprzedni=temp1;
+    }
+
+    else if(drugi-pierwszy>1)
+    {
+        Wezel* znacznik1= glowa;
+        for(int i=0; i<pierwszy; i++)
+            znacznik1=znacznik1->nastepny;
+        Wezel* temp1 = znacznik1;
+        Wezel* znacznik2= glowa;
+        for(int i=0; i<drugi; i++)
+            znacznik2=znacznik2->nastepny;
+        Wezel* temp2 = znacznik2;
+        temp1->poprzedni->nastepny=temp2;
+        temp1->nastepny->poprzedni=temp2;
+        temp2->nastepny->poprzedni=temp1;
+        temp2->poprzedni->nastepny=temp1;
+
+        Wezel* temp11=temp1->nastepny;
+        Wezel* temp12=temp1->poprzedni;
+
+        temp1->nastepny=temp2->nastepny;
+        temp1->poprzedni=temp2->poprzedni;
+        temp2->nastepny=temp11;
+        temp2->poprzedni=temp12;
+        if(pierwszy==0)
+            glowa=temp2;
+
+
+    }
 
 }
-
+/*
+        temp1->poprzedni->nastepny=temp2;
+        temp1->nastepny->poprzedni=temp2;
+        temp2->poprzedni->nastepny=temp1;
+        temp2->nastepny->poprzedni=temp1;
+        temp2->poprzedni=temp1->poprzedni;
+        temp2->nastepny=temp1->nastepny;
+        temp1->poprzedni=temp2->poprzedni;
+        temp1->poprzedni->nastepny=temp2;
+        temp1->nastepny=temp2->nastepny;
+*/
