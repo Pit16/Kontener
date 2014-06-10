@@ -111,6 +111,21 @@ void Kontener::zamien_obiekty(int pierwszy, int drugi)
        pierwszy=zmienna;
    }
 
+   if(pierwszy==0)
+   {
+   // gdy jeden z zamienianych obiektowy (stojacych obok siebie) jest glową
+   Wezel* temp1=glowa;
+   Wezel* temp2=glowa->nastepny;
+   temp2->nastepny->poprzedni=temp1;
+   glowa->poprzedni->nastepny=temp2;
+   temp2->poprzedni=temp1->poprzedni;
+   temp1->poprzedni=temp2;
+   temp1->nastepny=temp2->nastepny;
+   temp2->nastepny=temp1;
+   glowa=temp2;
+   }
+   else
+   {
    // gdy stoja dwa obiekty obok siebie
    Wezel* znacznik1= glowa;
       for(int i=0; i<pierwszy; i++)
@@ -127,6 +142,7 @@ void Kontener::zamien_obiekty(int pierwszy, int drugi)
    temp1->poprzedni=temp2->poprzedni;
    temp2->poprzedni->nastepny=temp1;
    temp2->poprzedni=temp1;
+   }
 
 }
 
