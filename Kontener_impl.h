@@ -50,12 +50,9 @@ template <class Typ>
 std::ostream& operator<< (std::ostream& strumien, Kontener<Typ>& kontener)
 {
     strumien<<"liczba elementow: "<<kontener.liczba_elementow<<std::endl;
-//    Wezel<Typ>* znacznik =kontener.glowa;
     for(int i=0; i<kontener.liczba_elementow; i++)
     {
         strumien<<" ["<<i<<"] "<<kontener.pobierz_element(i)<<std::endl;
-//        strumien<<" ["<<i<<"] "<<*znacznik<<std::endl;
-//        znacznik=znacznik->nastepny;
     }
     return strumien;
 }
@@ -115,9 +112,6 @@ Typ Kontener<Typ>::pobierz_element(int indeks)
 template <class Typ>
 void Kontener<Typ>::zamien_obiekty(int pierwszy, int drugi)
 {
-    //czy glowa dziala dobrze? nie sądze...
-
-
     if(pierwszy>drugi)
     {
         int zmienna=0;

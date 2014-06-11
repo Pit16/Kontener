@@ -21,6 +21,20 @@ int main()
     cout<<*nowy_kontener<<endl;
     nowy_kontener->zamien_obiekty(2,0);
     cout<<*nowy_kontener;
+    Kontener<double> double_kontener;
+    double_kontener.dodaj_element(1.2);
+    double_kontener.dodaj_element(1.0);
+    double_kontener.dodaj_element(2.2);
+    cout<<double_kontener;
+    double_kontener.zamien_obiekty(0,1);
+    cout<<double_kontener;
+    Kontener<string> string_kontener;
+    string_kontener.dodaj_element("dom");
+    string_kontener.dodaj_element("samo");
+    string_kontener.dodaj_element("dome");
+    cout<<string_kontener;
+    string_kontener.zamien_obiekty(0,1);
+    cout<<string_kontener;
 
 
 
