@@ -14,7 +14,10 @@ public:
 private:
     Typ wartosc;
 };
+
 template <class Typ>
 std::ostream& operator<< (std::ostream& strumien, Wezel<Typ>& wezel);
+
+#include "Wezel_impl.h"
 
 #endif //WEZEL_H

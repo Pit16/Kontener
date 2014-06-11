@@ -1,4 +1,6 @@
-#include "Kontener.h"
+#ifndef KONTENER_IMPL_H
+#define KONTENER_IMPL_H
+
 #include <iostream>
 using namespace std;
 
@@ -197,3 +199,5 @@ void Kontener<Typ>::zamien_obiekty(int pierwszy, int drugi)
     }
 
 }
+
+#endif //KONTENER_IMPL_H
