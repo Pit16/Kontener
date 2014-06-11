@@ -1,4 +1,6 @@
-#include "Wezel.h"
+#ifndef WEZEL_IMPL_H
+#define WEZEL_IMPL_H
+
 #include <iostream>
 using namespace std;
 
@@ -23,6 +25,7 @@ Wezel<Typ>::~Wezel()
         poprzedni->poprzedni=NULL;
     }
 }
+
 template <class Typ>
 Typ Wezel<Typ>::pokaz_wartosc()
 {
@@ -36,3 +39,5 @@ ostream& operator<< (ostream& strumien, Wezel<Typ>& wezel)
 
    return strumien;
  }
+
+#endif //WEZEL_IMPL_H

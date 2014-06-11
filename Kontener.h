@@ -4,6 +4,10 @@
 #include <string>
 #include <iostream>
 
+template <class Typ> class Kontener;
+template <class Typ>
+std::ostream& operator<< (std::ostream& strumien, Kontener<Typ>& kontener);
+
 template <class Typ>
 class Kontener
 {
@@ -16,14 +20,13 @@ public:
     Typ pobierz_element(int indeks);
     void zamien_obiekty(int pierwszy, int drugi);
 
-//    friend std::ostream & operator<< (std::ostream &, Kontener &);
+    friend std::ostream & operator<< <>(std::ostream &, Kontener<Typ> &);
 private:
     Wezel<Typ>* glowa;
     Wezel<Typ>* ogon;
     int liczba_elementow;
 };
 
-template <class Typ>
-std::ostream& operator<< (std::ostream& strumien, Kontener<Typ>& kontener);
+#include "Kontener_impl.h"
 
 #endif //KONTENER_H
