@@ -23,7 +23,6 @@ public:
     friend std::ostream & operator<< <>(std::ostream &, Kontener<Typ> &);
 private:
     Wezel<Typ>* glowa;
-    Wezel<Typ>* ogon;
     int liczba_elementow;
 };
 
