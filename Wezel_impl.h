@@ -27,7 +27,7 @@ Wezel<Typ>::~Wezel()
 }
 
 template <class Typ>
-Typ Wezel<Typ>::pokaz_wartosc()
+Typ& Wezel<Typ>::pokaz_wartosc()
 {
     return wartosc;
 }
