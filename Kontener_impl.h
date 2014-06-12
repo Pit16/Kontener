@@ -95,6 +95,12 @@ Typ Kontener<Typ>::operator[](int indeks)
 template <class Typ>
 Typ Kontener<Typ>::pobierz_element(int indeks)
 {
+    if(indeks<0 || indeks>=liczba_elementow)
+    {
+        string wyjatek="przekroczenie zakresu";
+        throw wyjatek;
+    }
+
     if(liczba_elementow>=indeks)
     {
         Wezel<Typ>* znacznik = this->glowa;
