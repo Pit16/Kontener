@@ -4,22 +4,33 @@
 #include <string>
 #include <iostream>
 
+template <class Typ> class Kontener;
+template <class Typ>
+std::ostream& operator<< (std::ostream& strumien, Kontener<Typ>& kontener);
+template <class Typ>
+std::ostream& operator>> (std::istream& strumien, Kontener<Typ>& kontener);
+
+template <class Typ>
 class Kontener
 {
 public:
     Kontener();
     ~Kontener();
-    void dodaj_element(int nowy_element);
-    void usun_element(int stary_element);
-    int operator[](int indeks);
-    int pobierz_element(int indeks);
-    friend std::ostream & operator<< (std::ostream &, Kontener &);
+    void dodaj_element(Typ nowy_element);
+    void usun_element(Typ stary_element);
+    Typ operator[](int indeks);
+    Typ& pobierz_element(int indeks);
     void zamien_obiekty(int pierwszy, int drugi);
+    void zapis_do_pliku(std::ofstream& plik);
+    void odczyt_z_pliku(std::ifstream& plik);
+
+    friend std::ostream & operator<< <>(std::ostream &, Kontener<Typ> &);
+    friend std::ostream & operator>> <>(std::istream &, Kontener<Typ> &);
 private:
-    Wezel* glowa;
-    Wezel* ogon;
+    Wezel<Typ>* glowa;
     int liczba_elementow;
 };
-std::ostream& operator<< (std::ostream& strumien, Kontener& kontener);
+
+#include "Kontener_impl.h"
 
 #endif //KONTENER_H
