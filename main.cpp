@@ -16,12 +16,22 @@ int main()
 
 
     Kontener<Panstwo> kontener_panstw;
-    //kontener_panstw.dodaj_element(szwecja);
-    //kontener_panstw.dodaj_element(anglia);
     plik2>>kontener_panstw;
     cout<<kontener_panstw;
 
 
+    Kontener<int> kontener;
+    kontener.dodaj_element(1);
+    kontener.dodaj_element(2);
+    try
+    {
+        cout<<kontener.pobierz_element(1)<<endl;
+    }
+    catch(string wyjatek)
+    {
+            cout<<"Wyrzucono wyjatek: "<<endl;
+            cout<<wyjatek<<endl;
+    }
 
     return 0;
 }
