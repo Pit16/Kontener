@@ -10,13 +10,19 @@ Kontener<Typ>::Kontener()
 {
     liczba_elementow=0;
     glowa=NULL;
-    ogon=NULL;
 }
 
 template <class Typ>
 Kontener<Typ>::~Kontener()
 {
-    //TODO: usuwanie wezlow
+    Wezel<Typ>* znacznik1=glowa;
+
+    for(int i=0; i<liczba_elementow; i++)
+    {
+        Wezel<Typ>* znacznik2=znacznik1;
+        znacznik1=znacznik1->nastepny;
+        delete znacznik2;
+    }
 }
 
 template <class Typ>
