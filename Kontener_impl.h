@@ -95,7 +95,7 @@ Typ Kontener<Typ>::pobierz_element(int indeks)
     }
     else
         cout<<"Brak elementow"<<endl;
-    return 0;
+    return 0;	//TODO: poprawic
 }
 
 template <class Typ>
@@ -186,7 +186,6 @@ void Kontener<Typ>::zamien_obiekty(int pierwszy, int drugi)
 template <class Typ>
 void Kontener<Typ>::zapis_do_pliku (std::ofstream& strumien)
 {
-//    strumien<<"liczba elementow: "<<kontener.liczba_elementow<<std::endl;
     for(int i=0; i<liczba_elementow; i++)
     {
         strumien<<"["<<i<<"] "<<pobierz_element(i)<<std::endl;
@@ -219,7 +218,6 @@ void Kontener<Typ>::odczyt_z_pliku (std::ifstream& strumien)
 template <class Typ>
 std::ostream& operator<< (std::ostream& strumien, Kontener<Typ>& kontener)
 {
-//    strumien<<"liczba elementow: "<<kontener.liczba_elementow<<std::endl;
     for(int i=0; i<kontener.liczba_elementow; i++)
     {
         strumien<<"["<<i<<"] "<<kontener.pobierz_element(i)<<std::endl;

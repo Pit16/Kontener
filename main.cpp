@@ -38,6 +38,15 @@ int main()
     plik4 >> panstwo2;
     cout << panstwo2 << endl;
 
+
+    Panstwo anglia("Anglia", 100, 1000);
+    Panstwo szwecja("Szwecja", 200, 3000);
+
+    Kontener<Panstwo> kontener_panstw;
+    kontener_panstw.dodaj_element(szwecja);
+    kontener_panstw.dodaj_element(anglia);
+    cout<<kontener_panstw;
+
     return 0;
 }
 
