@@ -10,7 +10,7 @@ public:
    ~Wezel();
     Wezel* nastepny;
     Wezel* poprzedni;
-    Typ pokaz_wartosc();
+    Typ& pokaz_wartosc();
 private:
     Typ wartosc;
 };

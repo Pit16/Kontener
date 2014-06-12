@@ -8,44 +8,20 @@ int main()
 {
     cout<<"Hello world"<<endl;
 
-    Kontener<int> int_kontener;
-    int_kontener.dodaj_element(0);
-    int_kontener.dodaj_element(1);
-    int_kontener.dodaj_element(2);
-    cout << int_kontener;
-
-
-    ofstream plik1("plik1.txt");
-//    plik1<<int_kontener;
-    int_kontener.zapis_do_pliku(plik1);
-
-    Kontener<int> nowy_kontener;
-
-
-    ifstream plik2("plik1.txt");
-//    plik1 >> nowy_kontener;
-    nowy_kontener.odczyt_z_pliku(plik2);
-    nowy_kontener.dodaj_element(3);
-    nowy_kontener.zamien_obiekty(1,3);
-    cout << nowy_kontener;
-
-    Panstwo panstwo("nazwa", 100, 200);
-    ofstream plik3("panstwo.txt");
-    plik3 << panstwo;
-    Panstwo panstwo2("cos", 1, 1);
-
-    ifstream plik4("panstwo.txt");
-    plik4 >> panstwo2;
-    cout << panstwo2 << endl;
-
 
     Panstwo anglia("Anglia", 100, 1000);
     Panstwo szwecja("Szwecja", 200, 3000);
 
+    ifstream plik2("testpanstwo");
+
+
     Kontener<Panstwo> kontener_panstw;
-    kontener_panstw.dodaj_element(szwecja);
-    kontener_panstw.dodaj_element(anglia);
+    //kontener_panstw.dodaj_element(szwecja);
+    //kontener_panstw.dodaj_element(anglia);
+    plik2>>kontener_panstw;
     cout<<kontener_panstw;
+
+
 
     return 0;
 }

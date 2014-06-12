@@ -82,7 +82,7 @@ Typ Kontener<Typ>::operator[](int indeks)
 }
 
 template <class Typ>
-Typ Kontener<Typ>::pobierz_element(int indeks)
+Typ& Kontener<Typ>::pobierz_element(int indeks)
 {
     if(liczba_elementow>=indeks)
     {
@@ -95,7 +95,7 @@ Typ Kontener<Typ>::pobierz_element(int indeks)
     }
     else
         cout<<"Brak elementow"<<endl;
-    return 0;	//TODO: poprawic
+    //return 0;	//TODO: poprawic
 }
 
 template <class Typ>
@@ -220,7 +220,9 @@ std::ostream& operator<< (std::ostream& strumien, Kontener<Typ>& kontener)
 {
     for(int i=0; i<kontener.liczba_elementow; i++)
     {
-        strumien<<"["<<i<<"] "<<kontener.pobierz_element(i)<<std::endl;
+        strumien<<"["<<i<<"] ";
+        strumien<<kontener.pobierz_element(i);
+        strumien<<std::endl;
     }
     strumien << "#" << endl;
     return strumien;

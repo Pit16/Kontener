@@ -8,7 +8,7 @@
 #ifndef DEBUGOWANIE_H_
 #define DEBUGOWANIE_H_
 
-#define _DEBUG
+//#define _DEBUG
 
 #include <string>
 inline void debug(string komunikat)
